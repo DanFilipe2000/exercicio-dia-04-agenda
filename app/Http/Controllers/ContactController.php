@@ -53,4 +53,31 @@ class ContactController extends Controller
 
         return view('contact.id', compact('contact'));
     }
+
+    // Edita os contatos:
+
+    public function edit($id) {
+        $email = Auth::user()->email;
+        $user = User::where('email', $email)->first();
+
+        $contact = Contact::find($id);
+
+        if ($user->id != $contact->user_id) {
+            return view('errors.404', 404);
+        }
+
+        return view('contact.edit', compact('contact'));
+    }
+
+    public function update($id, Request $request) {
+        $contact = Contact::find($id);
+
+        $contact->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+        ]);
+
+        return redirect('/contacts');
+    }
 }

@@ -16,6 +16,7 @@
             <li>Email: {{ $item->email }}</li>
             <li>Phone: {{ $item->phone }}</li>
         </ul>
+        <a href="/contacts/edit/{{ $item->id }}">Editar contato</a>
         <br>
         @endforeach
     </ol>

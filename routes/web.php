@@ -28,6 +28,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Routes for show contact by ID:
     Route::get('/contacts/show/{id}', [ContactController::class, 'getById']);
 
+    // Edit Contacts Route:
+    Route::get('/contacts/edit/{id}', [ContactController::class, 'edit']);
+    Route::post('/contacts/update/{id}', [ContactController::class, 'update']);
 });
 
 //Login Routes:
