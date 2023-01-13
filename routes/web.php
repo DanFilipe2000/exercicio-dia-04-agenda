@@ -37,9 +37,9 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //Login Routes:
-Route::get('/login', [UserController::class, 'loginView']);
-Route::post('/loginPost', [UserController::class, 'loginPost']);
+Route::get('/login', [UserController::class, 'loginView'])->name('login');
+Route::post('/signin', [UserController::class, 'loginPost']);
 
 //Register Routes:
 Route::get('/register', [UserController::class, 'registerView']);
-Route::post('/registerPost', [UserController::class, 'registerPost']);
+Route::post('/signup', [UserController::class, 'registerPost']);
