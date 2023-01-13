@@ -16,7 +16,7 @@ class ContactController extends Controller
         $user = User::where('email', $email)->first();
         $contacts = Contact::where('user_id', $user->id)->get();
 
-        return response()->view('contact.contacts', compact('contacts', 200));
+        return response()->view('contact.contacts', compact('contacts'), 200);
     }
 
     // Cria o registro de um contato no banco de dados:
@@ -36,7 +36,7 @@ class ContactController extends Controller
             'user_id' => $user->id,
         ]);
 
-        return redirect('/');
+        return redirect('/contacts');
     }
 
     // Recupera um contato baseado no id:
