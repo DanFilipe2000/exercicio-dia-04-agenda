@@ -31,6 +31,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Edit Contacts Route:
     Route::get('/contacts/edit/{id}', [ContactController::class, 'edit']);
     Route::post('/contacts/update/{id}', [ContactController::class, 'update']);
+
+    // Destroy Contact Route:
+    Route::get('/contacts/delete/{id}', [ContactController::class, 'destroy']);
 });
 
 //Login Routes:

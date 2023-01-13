@@ -13,7 +13,11 @@
         <input name="name" value="{{ $contact->name }}" type="text">
         <input name="email" value="{{ $contact->email }}" type="text">
         <input name="phone" value="{{ $contact->phone }}" type="text">
-        <button type="submit">Criar</button>
+        <button type="submit">Editar</button>
+    </form>
+    <form action="/contacts/delete/{{ $contact->id }}">
+        @csrf
+        <button type="submit">Deletar contato</button>
     </form>
 </body>
 </html>

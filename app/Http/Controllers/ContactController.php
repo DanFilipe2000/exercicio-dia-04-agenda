@@ -80,4 +80,21 @@ class ContactController extends Controller
 
         return redirect('/contacts');
     }
+
+    // Deleta contatos:
+
+    public function destroy($id) {
+        $email = Auth::user()->email;
+        $user = User::where('email', $email)->first();
+
+        $contact = Contact::find($id);
+
+        if ($user->id != $contact->user_id) {
+            return view('errors.404', 404);
+        }
+
+        $contact->delete();
+
+        return redirect('/contacts');
+    }
 }
