@@ -16,13 +16,13 @@ class ContactController extends Controller
         $user = User::where('email', $email)->first();
         $contacts = Contact::where('user_id', $user->id)->get();
 
-        return view('contact.contacts', compact('contacts'));
+        return response()->view('contact.contacts', compact('contacts', 200));
     }
 
     // Cria o registro de um contato no banco de dados:
 
     public function create() {
-        return view('contact.create');
+        return response()->view('contact.create', [], 200);
     }
 
     public function store (Request $request) {
