@@ -36,7 +36,7 @@ class ContactController extends Controller
             'user_id' => $user->id,
         ]);
 
-        return redirect('/contacts');
+        return redirect('/');
     }
 
     // Recupera um contato baseado no id:
