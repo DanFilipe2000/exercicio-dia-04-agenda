@@ -24,13 +24,14 @@ Route::post('/signin', [UserController::class, 'loginPost']);
 Route::get('/register', [UserController::class, 'registerView']);
 Route::post('/signup', [UserController::class, 'registerPost']);
 
+Route::get('/contacts/create', [ContactController::class, 'create']);
+
 // Route group:
 Route::group(['middleware' => 'auth'], function () {
     // Get All Contacts Route:
     Route::get('/contacts', [ContactController::class, 'getAll']);
 
     // Routes for register new contacts on database:
-    Route::get('/contacts/create', [ContactController::class, 'create']);
     Route::post('/contacts/store', [ContactController::class, 'store']);
 
     // Routes for show contact by ID:
