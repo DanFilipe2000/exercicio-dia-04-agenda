@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Meus Contatos</h1>
+    <h4><a href="/contacts/create">Criar Contato</a></h4>
     <ol>
         @foreach ($contacts as $item)
         <h3>Nome: {{ $item->name }}</h3>

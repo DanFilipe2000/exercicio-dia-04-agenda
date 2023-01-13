@@ -24,6 +24,10 @@ Route::group(['middleware' => 'auth'], function () {
     // Routes for register new contacts on database:
     Route::get('/contacts/create', [ContactController::class, 'create']);
     Route::post('/contacts/store', [ContactController::class, 'store']);
+
+    // Routes for show contact by ID:
+    Route::get('/contacts/show/{id}', [ContactController::class, 'getById']);
+
 });
 
 //Login Routes:

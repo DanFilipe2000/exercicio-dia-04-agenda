@@ -38,4 +38,19 @@ class ContactController extends Controller
 
         return redirect('/contacts');
     }
+
+    // Recupera um contato baseado no id:
+
+    public function getById($id) {
+        $email = Auth::user()->email;
+        $user = User::where('email', $email)->first();
+
+        $contact = Contact::find($id);
+
+        if ($user->id != $contact->user_id) {
+            return view('errors.404', 404);
+        }
+
+        return view('contact.id', compact('contact'));
+    }
 }
