@@ -18,7 +18,7 @@ use App\Http\Controllers\ContactController;
 // Login and Register Routes
 // Login Routes:
 Route::get('/login', [UserController::class, 'loginView'])->name('login');
-Route::post('/signin', [UserController::class, 'loginPost']);
+Route::post('/signin', [UserController::class, 'loginPost'])->name('login');
 
 // Register Routes:
 Route::get('/register', [UserController::class, 'registerView']);
