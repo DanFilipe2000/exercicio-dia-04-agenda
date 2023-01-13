@@ -16,7 +16,15 @@ use App\Http\Controllers\ContactController;
 */
 
 // Login and Register Routes
+// Login Routes:
+Route::get('/login', [UserController::class, 'loginView'])->name('login');
+Route::post('/signin', [UserController::class, 'loginPost']);
 
+// Register Routes:
+Route::get('/register', [UserController::class, 'registerView']);
+Route::post('/signup', [UserController::class, 'registerPost']);
+
+// Route group:
 Route::group(['middleware' => 'auth'], function () {
     // Get All Contacts Route:
     Route::get('/contacts', [ContactController::class, 'getAll']);
@@ -35,11 +43,3 @@ Route::group(['middleware' => 'auth'], function () {
     // Destroy Contact Route:
     Route::get('/contacts/delete/{id}', [ContactController::class, 'destroy']);
 });
-
-//Login Routes:
-Route::get('/login', [UserController::class, 'loginView'])->name('login');
-Route::post('/signin', [UserController::class, 'loginPost']);
-
-//Register Routes:
-Route::get('/register', [UserController::class, 'registerView']);
-Route::post('/signup', [UserController::class, 'registerPost']);
