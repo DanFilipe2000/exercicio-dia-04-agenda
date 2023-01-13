@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,15 @@ use App\Http\Controllers\UserController;
 
 // Login and Register Routes
 
+Route::group(['middleware' => 'auth'], function () {
+    // Get All Contacts Route:
+    Route::get('/contacts', [ContactController::class, 'getAll']);
+
+    // Routes for register new contacts on database:
+    Route::get('/contacts/create', [ContactController::class, 'create']);
+    Route::post('/contacts/store', [ContactController::class, 'store']);
+});
+
 //Login Routes:
 Route::get('/login', [UserController::class, 'loginView']);
 Route::post('/loginPost', [UserController::class, 'loginPost']);
@@ -23,5 +33,3 @@ Route::post('/loginPost', [UserController::class, 'loginPost']);
 //Register Routes:
 Route::get('/register', [UserController::class, 'registerView']);
 Route::post('/registerPost', [UserController::class, 'registerPost']);
-
-

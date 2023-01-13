@@ -20,7 +20,7 @@ class UserController extends Controller
         ];
 
         if (auth()->attempt($credentials)) {
-            return redirect('/');
+            return redirect('/contacts');
         }
 
         return back();

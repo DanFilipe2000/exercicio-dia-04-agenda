@@ -10,4 +10,8 @@ class Contact extends Model
     use HasFactory;
 
     protected $fillable = ['name', 'email', 'phone', 'user_id'];
+
+    public function user() {
+        return $this->belongsTo('App/Http/Models/User', 'user_id');
+    }
 }
