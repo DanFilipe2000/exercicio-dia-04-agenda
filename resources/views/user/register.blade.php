@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Registre-se</h1>
-    <form action="/registerPost" method="POST">
+    <form action="/signup" method="POST">
         @csrf
         <input name="name" type="text" placeholder="Nome Completo">
         <input name="email" type="email" placeholder="E-Mail">

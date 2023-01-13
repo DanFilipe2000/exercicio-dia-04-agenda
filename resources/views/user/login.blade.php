@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Login</h1>
-    <form action="/loginPost" method="POST">
+    <form action="/signin" method="POST">
         @csrf
         <input name="email" type="email" placeholder="E-Mail">
         <input name="password" type="password" placeholder="Senha">
