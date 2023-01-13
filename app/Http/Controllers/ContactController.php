@@ -22,7 +22,7 @@ class ContactController extends Controller
     // Cria o registro de um contato no banco de dados:
 
     public function create() {
-        return response()->view('contact.create', [], 200);
+        return view('contact.create', [], 200);
     }
 
     public function store (Request $request) {
@@ -36,7 +36,7 @@ class ContactController extends Controller
             'user_id' => $user->id,
         ]);
 
-        return redirect('/');
+        return redirect('/contacts');
     }
 
     // Recupera um contato baseado no id:
