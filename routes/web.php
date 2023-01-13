@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //Login Routes:
-Route::get('/login', [UserController::class, 'loginView']);
+Route::get('/login', [UserController::class, 'loginView'])->name('login');
 Route::post('/signin', [UserController::class, 'loginPost']);
 
 //Register Routes:

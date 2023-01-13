@@ -48,7 +48,7 @@ class ContactController extends Controller
         $contact = Contact::find($id);
 
         if ($user->id != $contact->user_id) {
-            return view('errors.404', 404);
+            abort(404);
         }
 
         return view('contact.id', compact('contact'));
@@ -63,7 +63,7 @@ class ContactController extends Controller
         $contact = Contact::find($id);
 
         if ($user->id != $contact->user_id) {
-            return view('errors.404', 404);
+            abort(404);
         }
 
         return view('contact.edit', compact('contact'));
@@ -90,7 +90,7 @@ class ContactController extends Controller
         $contact = Contact::find($id);
 
         if ($user->id != $contact->user_id) {
-            return view('errors.404', 404);
+            abort(404);
         }
 
         $contact->delete();
